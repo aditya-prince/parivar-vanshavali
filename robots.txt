@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://adityakumar.github.io/gupta-parivar/sitemap.xml

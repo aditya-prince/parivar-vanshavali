@@ -1,0 +1,1830 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parivar Vanshavali - Family Tree & Heritage Room Portal</title>
+  <meta name="description" content="Apne parivar ka digital vanshavali (Family Tree) room banayein, dada-pardada aur aane wali peedhiyon ka itihas aur photo surakshit rakhein.">
+  <meta name="keywords" content="Family Tree, Parivar Vanshavali, Gupta Parivar, Digital Vanshavali, Family Heritage Portal, Kulvriksh">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Parivar Vanshavali - Digital Family Tree Portal">
+  <meta property="og:description" content="Private Passkey Protected Family Tree Rooms. Create your family lineage and share securely with relatives.">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      /* Bright, Warm & Clean Light Theme (Default) */
+      --bg-main: #fcfaf5;
+      --bg-pattern: radial-gradient(#e6dec8 1px, transparent 1px);
+      --header-bg: rgba(255, 255, 255, 0.94);
+      --card-bg: #ffffff;
+      --card-border: #e5dcc5;
+      --card-hover-border: #d97706;
+      --primary: #c2410c;
+      --primary-light: #fff7ed;
+      --accent-gold: #b45309;
+      --accent-green: #15803d;
+      --accent-green-bg: #dcfce7;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+      --line-color: #d97706;
+      --shadow-soft: 0 10px 25px -5px rgba(180, 83, 9, 0.08), 0 4px 10px -2px rgba(0, 0, 0, 0.04);
+      --shadow-hover: 0 20px 35px -8px rgba(180, 83, 9, 0.18);
+    }
+
+    [data-theme="nature"] {
+      --bg-main: #f4fbf7;
+      --bg-pattern: radial-gradient(#cce8d6 1px, transparent 1px);
+      --header-bg: rgba(255, 255, 255, 0.94);
+      --card-bg: #ffffff;
+      --card-border: #bbf7d0;
+      --card-hover-border: #15803d;
+      --primary: #15803d;
+      --primary-light: #f0fdf4;
+      --accent-gold: #166534;
+      --accent-green: #059669;
+      --accent-green-bg: #d1fae5;
+      --text-dark: #0f172a;
+      --text-muted: #475569;
+      --line-color: #16a34a;
+      --shadow-soft: 0 10px 25px -5px rgba(21, 128, 61, 0.08);
+      --shadow-hover: 0 20px 35px -8px rgba(21, 128, 61, 0.18);
+    }
+
+    [data-theme="royal-blue"] {
+      --bg-main: #f8fafc;
+      --bg-pattern: radial-gradient(#cbd5e1 1px, transparent 1px);
+      --header-bg: rgba(255, 255, 255, 0.95);
+      --card-bg: #ffffff;
+      --card-border: #e2e8f0;
+      --card-hover-border: #2563eb;
+      --primary: #1d4ed8;
+      --primary-light: #eff6ff;
+      --accent-gold: #1e40af;
+      --accent-green: #0d9488;
+      --accent-green-bg: #ccfbf1;
+      --text-dark: #0f172a;
+      --text-muted: #64748b;
+      --line-color: #3b82f6;
+      --shadow-soft: 0 10px 25px -5px rgba(37, 99, 235, 0.08);
+      --shadow-hover: 0 20px 35px -8px rgba(37, 99, 235, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-main);
+      background-image: var(--bg-pattern);
+      background-size: 24px 24px;
+      color: var(--text-dark);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ================= AUTH / ROOM GATE OVERLAY ================= */
+    #auth-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 50%, #ffedd5 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .auth-card {
+      width: 100%;
+      max-width: 460px;
+      background: #ffffff;
+      border: 2px solid #fde68a;
+      border-radius: 28px;
+      padding: 36px 32px;
+      box-shadow: 0 25px 50px -12px rgba(180, 83, 9, 0.15);
+      text-align: center;
+    }
+
+    .emblem-circle {
+      width: 78px;
+      height: 78px;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #fff7ed, #ffedd5);
+      border: 2px solid #f59e0b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(245, 158, 11, 0.2);
+    }
+
+    .emblem-circle i {
+      font-size: 2.2rem;
+      color: #d97706;
+    }
+
+    .auth-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #9a3412;
+      margin-bottom: 4px;
+    }
+
+    .auth-subtitle {
+      font-size: 0.86rem;
+      color: #78716c;
+      margin-bottom: 22px;
+    }
+
+    .auth-tabs {
+      display: flex;
+      background: #f5f5f4;
+      padding: 5px;
+      border-radius: 14px;
+      margin-bottom: 22px;
+    }
+
+    .auth-tab {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      background: transparent;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #57534e;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .auth-tab.active {
+      background: #ffffff;
+      color: #c2410c;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .field-group {
+      text-align: left;
+      margin-bottom: 16px;
+    }
+
+    .field-group label {
+      display: block;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #78350f;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .input-wrap {
+      position: relative;
+    }
+
+    .input-wrap i {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #d97706;
+    }
+
+    .auth-input {
+      width: 100%;
+      padding: 12px 14px 12px 40px;
+      border: 1.5px solid #e7e5e4;
+      border-radius: 12px;
+      font-size: 0.94rem;
+      color: #1c1917;
+      background: #fafaf9;
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    .auth-input:focus {
+      border-color: #f59e0b;
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
+    }
+
+    .btn-main {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #ea580c 0%, #d97706 100%);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.98rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 8px 20px rgba(234, 88, 12, 0.25);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-main:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(234, 88, 12, 0.35);
+    }
+
+    .auth-error {
+      color: #dc2626;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      margin-bottom: 14px;
+      display: none;
+    }
+
+    /* ================= TOP HEADER ================= */
+    header.top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 72px;
+      background: var(--header-bg);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      z-index: 100;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+    }
+
+    .brand-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--primary-light);
+      border: 1.5px solid var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 1.3rem;
+    }
+
+    .brand-text h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      line-height: 1.1;
+    }
+
+    .brand-text span {
+      font-size: 0.74rem;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .view-switcher {
+      display: flex;
+      background: #f1f5f9;
+      padding: 4px;
+      border-radius: 12px;
+      gap: 4px;
+    }
+
+    .view-btn {
+      padding: 7px 14px;
+      border: none;
+      border-radius: 9px;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .view-btn.active {
+      background: #ffffff;
+      color: var(--primary);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .action-btn {
+      padding: 8px 13px;
+      border-radius: 10px;
+      border: 1px solid var(--card-border);
+      background: #ffffff;
+      color: var(--text-dark);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .action-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .action-btn.solid {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .action-btn.solid:hover {
+      opacity: 0.92;
+      color: #ffffff;
+    }
+
+    /* ================= HERO & CONTROLS ================= */
+    main {
+      padding-top: 84px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .banner-bar {
+      max-width: 1100px;
+      margin: 0 auto 14px;
+      padding: 16px 24px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+      background: #ffffff;
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .room-badge-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .room-pill {
+      background: var(--accent-green-bg);
+      color: var(--accent-green);
+      font-weight: 700;
+      font-size: 0.76rem;
+      padding: 5px 12px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .search-Filter-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .search-input-box {
+      position: relative;
+      min-width: 240px;
+    }
+
+    .search-input-box i {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .search-input-box input {
+      width: 100%;
+      padding: 8px 12px 8px 34px;
+      border-radius: 10px;
+      border: 1px solid var(--card-border);
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    /* ================= VISUAL FAMILY TREE CHART (LIGHT & CLEAN) ================= */
+    #tree-viewport {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      cursor: grab;
+      user-select: none;
+      min-height: 600px;
+    }
+
+    #tree-viewport:active {
+      cursor: grabbing;
+    }
+
+    #tree-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform-origin: 0 0;
+      transition: transform 0.06s ease-out;
+    }
+
+    #connector-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4000px;
+      height: 3000px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .tree-branch-line {
+      fill: none;
+      stroke: var(--line-color);
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .generation-row {
+      display: flex;
+      justify-content: center;
+      gap: 36px;
+      margin-bottom: 78px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .gen-tag {
+      position: absolute;
+      left: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--primary-light);
+      color: var(--primary);
+      border: 1px solid var(--card-border);
+      padding: 6px 12px;
+      border-radius: 10px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+
+    /* Clean Light Card Like Reference Image */
+    .person-card {
+      width: 245px;
+      background: var(--card-bg);
+      border: 2px solid var(--card-border);
+      border-radius: 20px;
+      padding: 16px 14px 14px;
+      text-align: center;
+      position: relative;
+      cursor: pointer;
+      box-shadow: var(--shadow-soft);
+      transition: all 0.25s ease;
+    }
+
+    .person-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--primary), #f59e0b);
+      border-radius: 18px 18px 0 0;
+    }
+
+    .person-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--card-hover-border);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .avatar-ring {
+      width: 78px;
+      height: 78px;
+      margin: 4px auto 10px;
+      border-radius: 50%;
+      padding: 3px;
+      background: linear-gradient(135deg, var(--primary), #fbbf24);
+      position: relative;
+    }
+
+    .avatar-ring img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #ffffff;
+    }
+
+    .avatar-fallback {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      font-weight: 800;
+    }
+
+    .life-pill {
+      position: absolute;
+      bottom: -2px;
+      right: -4px;
+      font-size: 0.62rem;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 999px;
+      color: #ffffff;
+      border: 2px solid #ffffff;
+    }
+
+    .life-pill.living { background: #16a34a; }
+    .life-pill.late { background: #64748b; }
+
+    .person-role {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-bottom: 5px;
+    }
+
+    .person-name {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .person-spouse {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .person-years {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .card-quick-bar {
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px dashed var(--card-border);
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .mini-btn {
+      padding: 4px 9px;
+      border-radius: 7px;
+      border: 1px solid var(--card-border);
+      background: #f8fafc;
+      color: var(--text-dark);
+      font-size: 0.72rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.15s;
+    }
+
+    .mini-btn:hover {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    /* Floating Zoom Controls */
+    .zoom-dock {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 40;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      background: #ffffff;
+      border: 1px solid var(--card-border);
+      padding: 8px;
+      border-radius: 14px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .zoom-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      border: 1px solid var(--card-border);
+      background: #f8fafc;
+      color: var(--text-dark);
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .zoom-btn:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    /* ================= ALBUM & LIST VIEWS ================= */
+    #album-section, #list-section {
+      display: none;
+      max-width: 1150px;
+      margin: 0 auto 50px;
+      padding: 10px 24px;
+      width: 100%;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 20px;
+    }
+
+    .photo-card {
+      background: #ffffff;
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .photo-card:hover { transform: translateY(-4px); }
+
+    .photo-frame {
+      height: 210px;
+      background: var(--primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .clean-table {
+      width: 100%;
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid var(--card-border);
+      border-collapse: collapse;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .clean-table th {
+      background: var(--primary-light);
+      color: var(--primary);
+      text-align: left;
+      padding: 14px 16px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+    }
+
+    .clean-table td {
+      padding: 12px 16px;
+      border-top: 1px solid var(--card-border);
+      font-size: 0.88rem;
+    }
+
+    /* ================= MODALS ================= */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(15, 23, 42, 0.55);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-backdrop.open { display: flex; }
+
+    .modal-box {
+      width: 100%;
+      max-width: 560px;
+      max-height: 90vh;
+      overflow-y: auto;
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 28px;
+      position: relative;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+    }
+
+    .close-x {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid #e2e8f0;
+      background: #f8fafc;
+      cursor: pointer;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .inp-label {
+      display: block;
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .inp-field {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .inp-field:focus { border-color: var(--primary); }
+
+    .upload-dropzone {
+      border: 2px dashed #cbd5e1;
+      background: #f8fafc;
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+      cursor: pointer;
+      margin-bottom: 16px;
+    }
+
+    .upload-dropzone:hover { border-color: var(--primary); }
+
+    @media (max-width: 768px) {
+      header.top-nav { padding: 0 12px; }
+      .brand-text span { display: none; }
+      .form-grid { grid-template-columns: 1fr; }
+      .person-card { width: 205px; }
+    }
+  </style>
+</head>
+<body data-theme="heritage">
+
+  <!-- ================= MULTI-ROOM LOGIN & CREATE GATE (NO PASSKEY SHOWN) ================= -->
+  <div id="auth-overlay">
+    <div class="auth-card">
+      <div class="emblem-circle">
+        <i class="fa-solid fa-tree"></i>
+      </div>
+      <h2 class="auth-title">PARIVAR VANSHAVALI</h2>
+      <p class="auth-subtitle">Apne Parivar Room me pravesh karein ya naya Parivar Room banayein</p>
+
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="tab-join-btn" onclick="switchAuthTab('join')">
+          <i class="fa-solid fa-door-open"></i> Room Kholein
+        </button>
+        <button class="auth-tab" id="tab-create-btn" onclick="switchAuthTab('create')">
+          <i class="fa-solid fa-plus-circle"></i> Naya Room Banayein
+        </button>
+      </div>
+
+      <div id="auth-err" class="auth-error"></div>
+
+      <!-- TAB 1: JOIN EXISTING ROOM -->
+      <form id="join-room-form" onsubmit="handleJoinRoom(event)">
+        <div class="field-group">
+          <label>Parivar Room ID</label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-users-rectangle"></i>
+            <input type="text" id="join-room-id" class="auth-input" placeholder="e.g. gupta-parivar" required>
+          </div>
+        </div>
+        <div class="field-group">
+          <label>Secret Passkey</label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="join-passkey" class="auth-input" placeholder="Apna secret passkey dalein" required>
+          </div>
+        </div>
+        <button type="submit" class="btn-main">
+          <i class="fa-solid fa-arrow-right-to-bracket"></i> Parivar Vriksh Dekhein
+        </button>
+      </form>
+
+      <!-- TAB 2: CREATE NEW FAMILY ROOM -->
+      <form id="create-room-form" style="display:none;" onsubmit="handleCreateRoom(event)">
+        <div class="field-group">
+          <label>Parivar Ka Naam (Title)</label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-crown"></i>
+            <input type="text" id="new-family-name" class="auth-input" placeholder="e.g. SHARMA PARIVAR" required>
+          </div>
+        </div>
+        <div class="field-group">
+          <label>Unique Room ID Banayein</label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-fingerprint"></i>
+            <input type="text" id="new-room-id" class="auth-input" placeholder="e.g. sharma-parivar-108" required>
+          </div>
+        </div>
+        <div class="field-group">
+          <label>Secret Passkey Set Karein</label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-key"></i>
+            <input type="password" id="new-passkey" class="auth-input" placeholder="Secret passkey chunein" required>
+          </div>
+        </div>
+        <div class="field-group">
+          <label>Pardada / Mukhiya Ka Naam (1st Generation)</label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-user-tie"></i>
+            <input type="text" id="new-founder-name" class="auth-input" placeholder="Purvaj / Mukhiya ka naam" required>
+          </div>
+        </div>
+        <button type="submit" class="btn-main">
+          <i class="fa-solid fa-sparkles"></i> Room Create Karein
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= TOP NAVIGATION BAR ================= -->
+  <header class="top-nav">
+    <div class="brand-left" onclick="centerTree()">
+      <div class="brand-icon"><i class="fa-solid fa-sitemap"></i></div>
+      <div class="brand-text">
+        <h1 id="nav-family-title">GUPTA PARIVAR</h1>
+        <span id="nav-room-tag">Room: gupta-parivar</span>
+      </div>
+    </div>
+
+    <div class="view-switcher">
+      <button class="view-btn active" onclick="setView('tree', this)"><i class="fa-solid fa-diagram-project"></i> Family Tree</button>
+      <button class="view-btn" onclick="setView('album', this)"><i class="fa-solid fa-images"></i> Photo Album</button>
+      <button class="view-btn" onclick="setView('list', this)"><i class="fa-solid fa-table-list"></i> Parivar Suchi</button>
+    </div>
+
+    <div class="nav-right">
+      <select class="action-btn" onchange="setTheme(this.value)" id="theme-picker">
+        <option value="heritage">☀️ Warm Heritage (Light)</option>
+        <option value="nature">🌿 Banyan Green (Light)</option>
+        <option value="royal-blue">💎 Clean Royal (Light)</option>
+      </select>
+
+      <button class="action-btn solid" onclick="openMemberModal()">
+        <i class="fa-solid fa-user-plus"></i> Add Sadasya
+      </button>
+
+      <button class="action-btn" onclick="shareRoomLink()" title="Share Room Link with Family">
+        <i class="fa-solid fa-share-nodes"></i> Share Link
+      </button>
+
+      <button class="action-btn" onclick="exportRoomJSON()" title="Download Room Backup">
+        <i class="fa-solid fa-download"></i>
+      </button>
+
+      <button class="action-btn" onclick="switchRoomLogout()" title="Switch Room / Logout">
+        <i class="fa-solid fa-power-off"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ================= MAIN WORKSPACE ================= -->
+  <main>
+    <div class="banner-bar">
+      <div class="room-badge-info">
+        <span class="room-pill"><i class="fa-solid fa-shield-check"></i> Passkey Protected Room</span>
+        <strong id="banner-subtitle" style="font-size:0.9rem; color:var(--text-muted);">
+          सम्मान, संस्कार और गौरवशाली पारिवारिक वंशवृक्ष
+        </strong>
+      </div>
+
+      <div class="search-Filter-wrap">
+        <div class="search-input-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Sadasya khojein..." oninput="renderFamilyTree(this.value)">
+        </div>
+        <span style="font-size:0.8rem; font-weight:700; color:var(--primary);">
+          Kul Sadasya: <span id="total-count">0</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- 1. INTERACTIVE LIGHT TREE VIEW -->
+    <div id="tree-viewport">
+      <div id="tree-canvas">
+        <svg id="connector-svg"></svg>
+        <div id="tree-generations"></div>
+      </div>
+
+      <div class="zoom-dock">
+        <button class="zoom-btn" onclick="zoomTree(1.12)" title="Zoom In"><i class="fa-solid fa-plus"></i></button>
+        <button class="zoom-btn" onclick="zoomTree(0.88)" title="Zoom Out"><i class="fa-solid fa-minus"></i></button>
+        <button class="zoom-btn" onclick="centerTree()" title="Center Tree"><i class="fa-solid fa-arrows-to-circle"></i></button>
+      </div>
+    </div>
+
+    <!-- 2. PHOTO ALBUM VIEW -->
+    <section id="album-section">
+      <div class="photo-grid" id="album-container"></div>
+    </section>
+
+    <!-- 3. TABLE DIRECTORY VIEW -->
+    <section id="list-section">
+      <table class="clean-table">
+        <thead>
+          <tr>
+            <th>Photo</th>
+            <th>Naam</th>
+            <th>Rishta</th>
+            <th>Peedhi</th>
+            <th>Jeevansathi</th>
+            <th>Janam / Kaal</th>
+            <th>Sthan & Karya</th>
+            <th>Edit</th>
+          </tr>
+        </thead>
+        <tbody id="list-tbody"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- ================= MEMBER PROFILE MODAL ================= -->
+  <div class="modal-backdrop" id="profile-modal">
+    <div class="modal-box" style="text-align:center;">
+      <button class="close-x" onclick="closeModal('profile-modal')"><i class="fa-solid fa-xmark"></i></button>
+      <div class="avatar-ring" style="width:110px; height:110px; margin:0 auto 12px;">
+        <img id="view-photo" src="" alt="Member" style="display:none;">
+        <div id="view-fallback" class="avatar-fallback" style="font-size:2.4rem;"></div>
+      </div>
+      <span id="view-role" class="person-role"></span>
+      <h3 id="view-name" style="font-size:1.45rem; margin:4px 0;"></h3>
+      <p id="view-years" style="font-size:0.85rem; color:var(--text-muted); margin-bottom:16px;"></p>
+
+      <div class="form-grid" style="text-align:left;">
+        <div style="background:#f8fafc; padding:12px; border-radius:12px; border:1px solid #e2e8f0;">
+          <span class="inp-label">Jeevansathi (Spouse)</span>
+          <strong id="view-spouse">-</strong>
+        </div>
+        <div style="background:#f8fafc; padding:12px; border-radius:12px; border:1px solid #e2e8f0;">
+          <span class="inp-label">Mul Niwas (Place)</span>
+          <strong id="view-place">-</strong>
+        </div>
+        <div style="background:#f8fafc; padding:12px; border-radius:12px; border:1px solid #e2e8f0;">
+          <span class="inp-label">Karyakshetra (Work)</span>
+          <strong id="view-work">-</strong>
+        </div>
+        <div style="background:#f8fafc; padding:12px; border-radius:12px; border:1px solid #e2e8f0;">
+          <span class="inp-label">Peedhi (Generation)</span>
+          <strong id="view-gen">-</strong>
+        </div>
+      </div>
+
+      <div style="text-align:left; background:#fffbeb; padding:14px; border-radius:12px; border:1px solid #fde68a; margin-bottom:18px;">
+        <span class="inp-label" style="color:#b45309;">Parivarik Parichay & Smriti</span>
+        <p id="view-bio" style="font-size:0.88rem; color:#44403c; line-height:1.5; margin-top:4px;"></p>
+      </div>
+
+      <div style="display:flex; gap:10px;">
+        <button class="btn-main" id="view-edit-btn" style="flex:1;"><i class="fa-solid fa-pen"></i> Edit Details</button>
+        <button class="action-btn" id="view-add-child-btn"><i class="fa-solid fa-plus"></i> Add Child</button>
+        <button class="action-btn" id="view-del-btn" style="color:#dc2626; border-color:#fecaca;"><i class="fa-solid fa-trash"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= ADD / EDIT MEMBER MODAL ================= -->
+  <div class="modal-backdrop" id="edit-modal">
+    <div class="modal-box">
+      <button class="close-x" onclick="closeModal('edit-modal')"><i class="fa-solid fa-xmark"></i></button>
+      <h3 id="edit-modal-heading" style="font-size:1.25rem; margin-bottom:16px; color:var(--primary);">
+        Parivar Sadasya Jodein / Update Karein
+      </h3>
+
+      <form id="member-form" onsubmit="saveMemberForm(event)">
+        <input type="hidden" id="m-id">
+
+        <div class="upload-dropzone" onclick="document.getElementById('m-file').click()">
+          <img id="m-preview" style="width:70px; height:70px; border-radius:50%; object-fit:cover; display:none; margin:0 auto 8px; border:2px solid var(--primary);">
+          <div id="m-upload-label">
+            <i class="fa-solid fa-camera" style="font-size:1.5rem; color:var(--primary); margin-bottom:4px;"></i>
+            <p style="font-size:0.82rem; font-weight:700;">Click karke Photo Upload karein</p>
+            <span style="font-size:0.72rem; color:var(--text-muted);">Phone ya computer gallery se</span>
+          </div>
+          <input type="file" id="m-file" accept="image/*" style="display:none;" onchange="compressAndPreviewPhoto(this)">
+        </div>
+
+        <div class="form-grid">
+          <div>
+            <label class="inp-label">Pura Naam *</label>
+            <input type="text" id="m-name" class="inp-field" required placeholder="e.g. Shri Sudhir Kumar Gupta">
+          </div>
+          <div>
+            <label class="inp-label">Parivar Me Rishta *</label>
+            <input type="text" id="m-role" class="inp-field" required placeholder="e.g. Pita Ji / Dada Ji">
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div>
+            <label class="inp-label">Peedhi (Generation) *</label>
+            <select id="m-gen" class="inp-field" required>
+              <option value="1">1st Gen (Pardada Ji / Purvaj)</option>
+              <option value="2">2nd Gen (Dada Ji)</option>
+              <option value="3">3rd Gen (Pita Ji / Chacha Ji)</option>
+              <option value="4" selected>4th Gen (Swayam / Bhai-Behan)</option>
+              <option value="5">5th Gen (Agli Peedhi / Bache)</option>
+            </select>
+          </div>
+          <div>
+            <label class="inp-label">Pita / Mata (Parent Select Karein)</label>
+            <select id="m-parent" class="inp-field">
+              <option value="">-- Top Purvaj (Root) --</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div>
+            <label class="inp-label">Jeevansathi (Spouse)</label>
+            <input type="text" id="m-spouse" class="inp-field" placeholder="Patni / Pati ka naam">
+          </div>
+          <div>
+            <label class="inp-label">Sthiti (Status)</label>
+            <select id="m-status" class="inp-field">
+              <option value="living">सकुशल (Living)</option>
+              <option value="late">स्वर्गवासी (Late)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div>
+            <label class="inp-label">Janam Varsh / Kaal</label>
+            <input type="text" id="m-years" class="inp-field" placeholder="e.g. 1972 ya 1938 - 2012">
+          </div>
+          <div>
+            <label class="inp-label">Mul Niwas (Place)</label>
+            <input type="text" id="m-place" class="inp-field" placeholder="e.g. Jehanabad, Bihar">
+          </div>
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <label class="inp-label">Vyavasay / Shiksha (Occupation)</label>
+          <input type="text" id="m-work" class="inp-field" placeholder="e.g. Vyapar / Engineering">
+        </div>
+
+        <div style="margin-bottom:18px;">
+          <label class="inp-label">Parivarik Vivaran (Bio)</label>
+          <textarea id="m-bio" class="inp-field" rows="2" placeholder="Unke bare me vishesh baatein..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-main"><i class="fa-solid fa-check-circle"></i> Surakshit Save Karein</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= SHARE ROOM LINK MODAL ================= -->
+  <div class="modal-backdrop" id="share-modal">
+    <div class="modal-box">
+      <button class="close-x" onclick="closeModal('share-modal')"><i class="fa-solid fa-xmark"></i></button>
+      <h3 style="font-size:1.25rem; color:var(--primary); margin-bottom:8px;">
+        <i class="fa-solid fa-share-nodes"></i> Parivar Room Share Karein
+      </h3>
+      <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:16px;">
+        Is link ko WhatsApp par parivar ke sadasyon ko bhejein. Jab wo link kholenge aur aapka bataya <strong>Room ID</strong> aur <strong>Passkey</strong> dalenge, to unke phone me bhi pura Family Tree khul jayega!
+      </p>
+
+      <div style="background:#f8fafc; padding:12px; border-radius:12px; border:1px solid #e2e8f0; margin-bottom:14px;">
+        <span class="inp-label">Room ID</span>
+        <strong id="share-room-id-txt" style="font-size:1rem; color:var(--primary);"></strong>
+      </div>
+
+      <label class="inp-label">Shareable Magic Link (With Family Data)</label>
+      <div style="display:flex; gap:8px; margin-bottom:16px;">
+        <input type="text" id="share-url-input" class="inp-field" readonly>
+        <button class="action-btn solid" onclick="copyShareLink()"><i class="fa-solid fa-copy"></i> Copy</button>
+      </div>
+
+      <button class="btn-main" onclick="shareViaWhatsApp()" style="background:#16a34a;">
+        <i class="fa-brands fa-whatsapp"></i> WhatsApp Par Share Karein
+      </button>
+    </div>
+  </div>
+
+  <!-- ================= APPLICATION ENGINE ================= -->
+  <script>
+    /* Default Pre-configured Room for GUPTA PARIVAR */
+    const DEFAULT_GUPTA_ROOM = {
+      roomId: "gupta-parivar",
+      passkey: "gupta123",
+      familyName: "GUPTA PARIVAR",
+      subtitle: "सम्मान • संस्कार • गौरवशाली पारिवारिक वंशवृक्ष",
+      members: [
+        {
+          id: "g1",
+          name: "Late Shri Kedar Nath Gupta",
+          role: "परदादा जी (Founder)",
+          generation: 1,
+          parentId: "",
+          spouse: "Late Smt. Bhagwati Devi",
+          status: "late",
+          years: "1912 - 1988",
+          place: "Bihar",
+          work: "Parivar Sansthapak & Krishi",
+          bio: "गुप्ता परिवार के आदरणीय स्तम्भ, जिनकी ईमानदारी और संस्कारों पर आज पूरा परिवार गर्व करता है।",
+          photo: ""
+        },
+        {
+          id: "g2",
+          name: "Late Shri Jagdish Prasad Gupta",
+          role: "दादा जी (Grandfather)",
+          generation: 2,
+          parentId: "g1",
+          spouse: "Late Smt. Sharda Devi",
+          status: "late",
+          years: "1938 - 2012",
+          place: "Bihar",
+          work: "Krishi & Vyapar",
+          bio: "परम पूज्य दादा जी, जिन्होंने पूरे परिवार को एकता और अनुशासन में पिरोया।",
+          photo: ""
+        },
+        {
+          id: "g3",
+          name: "Shri Sudhir Kumar Gupta",
+          role: "पिता जी (Father)",
+          generation: 3,
+          parentId: "g2",
+          spouse: "Smt. Arti Kumari",
+          status: "living",
+          years: "1972",
+          place: "Bihar",
+          work: "Vyapar & Samaj Seva",
+          bio: "परिवार के प्रमुख मार्गदर्शक, कर्मठ और आदर्श पिता।",
+          photo: ""
+        },
+        {
+          id: "g4",
+          name: "Shri Sunil Kumar Gupta",
+          role: "चाचा जी (Uncle)",
+          generation: 3,
+          parentId: "g2",
+          spouse: "Smt. Rekha Gupta",
+          status: "living",
+          years: "1978",
+          place: "Bihar",
+          work: "Vyapar",
+          bio: "परिवार के स्नेही और सहयोगी चाचा जी।",
+          photo: ""
+        },
+        {
+          id: "g5",
+          name: "Aditya Kumar",
+          role: "कुलदीपक (Self)",
+          generation: 4,
+          parentId: "g3",
+          spouse: "-",
+          status: "living",
+          years: "2005",
+          place: "Bihar",
+          work: "Computer Science & Engineering",
+          bio: "गुप्ता परिवार की चौथी पीढ़ी, तकनीकी शिक्षा और नवाचार के क्षेत्र में अग्रसर।",
+          photo: ""
+        },
+        {
+          id: "g6",
+          name: "Riya Kumari",
+          role: "बहन (Sister)",
+          generation: 4,
+          parentId: "g3",
+          spouse: "-",
+          status: "living",
+          years: "2008",
+          place: "Bihar",
+          work: "Vidyarthi",
+          bio: "परिवार की होनहार और संस्कारवान पुत्री।",
+          photo: ""
+        },
+        {
+          id: "g7",
+          name: "Aman Gupta",
+          role: "अनुज (Cousin)",
+          generation: 4,
+          parentId: "g4",
+          spouse: "-",
+          status: "living",
+          years: "2010",
+          place: "Bihar",
+          work: "Vidyarthi",
+          bio: "अध्ययनशील और ऊर्जावान युवा सदस्य।",
+          photo: ""
+        }
+      ]
+    };
+
+    /* Multi-Room Database in Browser Storage + URL Hash Import */
+    const DB_KEY = "vanshavali_multi_rooms_v2";
+    let allRooms = {};
+    let currentRoom = null;
+    let tempUploadBase64 = "";
+
+    function loadAllRooms() {
+      try {
+        const raw = localStorage.getItem(DB_KEY);
+        allRooms = raw ? JSON.parse(raw) : {};
+      } catch (e) {
+        allRooms = {};
+      }
+      if (!allRooms["gupta-parivar"]) {
+        allRooms["gupta-parivar"] = DEFAULT_GUPTA_ROOM;
+        saveAllRooms();
+      }
+    }
+
+    function saveAllRooms() {
+      if (currentRoom) {
+        allRooms[currentRoom.roomId] = currentRoom;
+      }
+      localStorage.setItem(DB_KEY, JSON.stringify(allRooms));
+    }
+
+    /* Check if link contains shared room payload (#room=...) */
+    function checkSharedURLPayload() {
+      const hash = window.location.hash;
+      if (hash.startsWith("#share=")) {
+        try {
+          const encoded = hash.replace("#share=", "");
+          const decoded = JSON.parse(decodeURIComponent(escape(atob(encoded))));
+          if (decoded && decoded.roomId && decoded.passkey) {
+            allRooms[decoded.roomId] = decoded;
+            saveAllRooms();
+            document.getElementById("join-room-id").value = decoded.roomId;
+          }
+        } catch (err) {
+          console.warn("Invalid share link payload");
+        }
+      }
+    }
+
+    /* Auth Tabs */
+    function switchAuthTab(mode) {
+      document.getElementById("auth-err").style.display = "none";
+      const joinForm = document.getElementById("join-room-form");
+      const createForm = document.getElementById("create-room-form");
+      document.getElementById("tab-join-btn").classList.toggle("active", mode === "join");
+      document.getElementById("tab-create-btn").classList.toggle("active", mode === "create");
+      joinForm.style.display = mode === "join" ? "block" : "none";
+      createForm.style.display = mode === "create" ? "block" : "none";
+    }
+
+    function showError(msg) {
+      const el = document.getElementById("auth-err");
+      el.textContent = msg;
+      el.style.display = "block";
+    }
+
+    function handleJoinRoom(e) {
+      e.preventDefault();
+      const rId = document.getElementById("join-room-id").value.trim().toLowerCase();
+      const pass = document.getElementById("join-passkey").value.trim();
+
+      const room = allRooms[rId];
+      if (!room) {
+        showError("Yeh Room ID nahi mila! Agar naya parivar hai to 'Naya Room Banayein' par click karein.");
+        return;
+      }
+      if (room.passkey !== pass) {
+        showError("Galat Passkey! Kripya sahi passkey dalein.");
+        return;
+      }
+
+      enterRoom(room);
+    }
+
+    function handleCreateRoom(e) {
+      e.preventDefault();
+      const famName = document.getElementById("new-family-name").value.trim().toUpperCase();
+      const rId = document.getElementById("new-room-id").value.trim().toLowerCase().replace(/[^a-z0-9-_]/g, "-");
+      const pass = document.getElementById("new-passkey").value.trim();
+      const founder = document.getElementById("new-founder-name").value.trim();
+
+      if (allRooms[rId]) {
+        showError("Yeh Room ID pehle se maujood hai! Koi dusra Room ID chunein.");
+        return;
+      }
+
+      const newRoom = {
+        roomId: rId,
+        passkey: pass,
+        familyName: famName,
+        subtitle: `${famName} — डिजिटल वंशवृक्ष एवं पारिवारिक धरोहर`,
+        members: [
+          {
+            id: "m-" + Date.now(),
+            name: founder,
+            role: "परदादा जी / संस्थापक",
+            generation: 1,
+            parentId: "",
+            spouse: "-",
+            status: "living",
+            years: "-",
+            place: "India",
+            work: "Parivar Mukhiya",
+            bio: `${famName} के प्रथम पूज्य स्तम्भ।`,
+            photo: ""
+          }
+        ]
+      };
+
+      allRooms[rId] = newRoom;
+      saveAllRooms();
+      enterRoom(newRoom);
+    }
+
+    function enterRoom(room) {
+      currentRoom = room;
+      sessionStorage.setItem("active_room_id", room.roomId);
+      document.getElementById("auth-overlay").style.display = "none";
+      document.getElementById("nav-family-title").textContent = room.familyName;
+      document.getElementById("nav-room-tag").textContent = `Room ID: ${room.roomId}`;
+      document.getElementById("banner-subtitle").textContent = room.subtitle;
+      document.title = `${room.familyName} - Parivar Vanshavali`;
+
+      renderFamilyTree();
+      setTimeout(centerTree, 100);
+    }
+
+    function switchRoomLogout() {
+      sessionStorage.removeItem("active_room_id");
+      currentRoom = null;
+      document.getElementById("join-passkey").value = "";
+      document.getElementById("auth-overlay").style.display = "flex";
+    }
+
+    /* Render Clean Light Tree */
+    function renderFamilyTree(searchQuery = "") {
+      if (!currentRoom) return;
+      const container = document.getElementById("tree-generations");
+      container.innerHTML = "";
+
+      const list = currentRoom.members.filter(m =>
+        m.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        m.role.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+
+      document.getElementById("total-count").textContent = currentRoom.members.length;
+
+      const genNames = {
+        1: "पीढ़ी 1 • परदादा / पूर्वज",
+        2: "पीढ़ी 2 • दादा-दादी",
+        3: "पीढ़ी 3 • माता-पिता एवं चाचा",
+        4: "पीढ़ी 4 • वर्तमान युवा पीढ़ी",
+        5: "पीढ़ी 5 • नई पीढ़ी (बच्चे)"
+      };
+
+      [1, 2, 3, 4, 5].forEach(genNum => {
+        const rowMembers = list.filter(m => Number(m.generation) === genNum);
+        if (rowMembers.length === 0) return;
+
+        const rowEl = document.createElement("div");
+        rowEl.className = "generation-row";
+
+        const tag = document.createElement("div");
+        tag.className = "gen-tag";
+        tag.textContent = genNames[genNum];
+        rowEl.appendChild(tag);
+
+        rowMembers.forEach(m => {
+          const card = document.createElement("div");
+          card.className = "person-card";
+          card.id = `node-${m.id}`;
+          card.onclick = () => showMemberProfile(m.id);
+
+          const initials = m.name.split(" ").map(w => w[0]).join("").slice(0, 2).toUpperCase();
+          const avatarHTML = m.photo
+            ? `<img src="${m.photo}" alt="${m.name}">`
+            : `<div class="avatar-fallback">${initials}</div>`;
+
+          const statusText = m.status === "late" ? "स्वर्गवासी" : "सकुशल";
+
+          card.innerHTML = `
+            <div class="avatar-ring">
+              ${avatarHTML}
+              <span class="life-pill ${m.status}">${statusText}</span>
+            </div>
+            <span class="person-role">${m.role}</span>
+            <div class="person-name">${m.name}</div>
+            <div class="person-spouse"><i class="fa-solid fa-ring" style="color:#f59e0b;"></i> ${m.spouse || '-'}</div>
+            <div class="person-years"><i class="fa-regular fa-calendar"></i> ${m.years || '-'} • ${m.place || ''}</div>
+            <div class="card-quick-bar" onclick="event.stopPropagation()">
+              <button class="mini-btn" onclick="openMemberModal('${m.id}')"><i class="fa-solid fa-pen"></i> Edit</button>
+              <button class="mini-btn" onclick="openAddChild('${m.id}')"><i class="fa-solid fa-plus"></i> Child</button>
+            </div>
+          `;
+          rowEl.appendChild(card);
+        });
+
+        container.appendChild(rowEl);
+      });
+
+      setTimeout(drawOrthogonalBranches, 60);
+    }
+
+    /* Crisp Orthogonal Family Tree Lines (Like Traditional Charts) */
+    function drawOrthogonalBranches() {
+      const svg = document.getElementById("connector-svg");
+      const canvas = document.getElementById("tree-canvas");
+      if (!svg || !canvas || !currentRoom) return;
+      svg.innerHTML = "";
+
+      const cRect = canvas.getBoundingClientRect();
+
+      currentRoom.members.forEach(m => {
+        if (!m.parentId) return;
+        const pEl = document.getElementById(`node-${m.parentId}`);
+        const cEl = document.getElementById(`node-${m.id}`);
+        if (!pEl || !cEl) return;
+
+        const pBox = pEl.getBoundingClientRect();
+        const cBox = cEl.getBoundingClientRect();
+
+        const x1 = (pBox.left + pBox.width / 2 - cRect.left) / scale;
+        const y1 = (pBox.bottom - cRect.top) / scale;
+        const x2 = (cBox.left + cBox.width / 2 - cRect.left) / scale;
+        const y2 = (cBox.top - cRect.top) / scale;
+        const midY = y1 + (y2 - y1) / 2;
+
+        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        path.setAttribute("d", `M ${x1} ${y1} L ${x1} ${midY} L ${x2} ${midY} L ${x2} ${y2}`);
+        path.setAttribute("class", "tree-branch-line");
+        svg.appendChild(path);
+      });
+    }
+
+    /* Pan & Zoom Engine */
+    let scale = 1, panX = 0, panY = 0, dragging = false, sX = 0, sY = 0;
+    const viewport = document.getElementById("tree-viewport");
+    const canvas = document.getElementById("tree-canvas");
+
+    viewport.addEventListener("mousedown", e => {
+      if (e.target.closest(".person-card") || e.target.closest(".zoom-dock")) return;
+      dragging = true;
+      sX = e.clientX - panX;
+      sY = e.clientY - panY;
+    });
+
+    window.addEventListener("mousemove", e => {
+      if (!dragging) return;
+      panX = e.clientX - sX;
+      panY = e.clientY - sY;
+      applyTransform();
+    });
+
+    window.addEventListener("mouseup", () => dragging = false);
+
+    function zoomTree(f) {
+      scale = Math.min(Math.max(0.45, scale * f), 1.8);
+      applyTransform();
+      drawOrthogonalBranches();
+    }
+
+    function applyTransform() {
+      canvas.style.transform = `translate(${panX}px, ${panY}px) scale(${scale})`;
+    }
+
+    function centerTree() {
+      scale = 1;
+      panX = 0;
+      panY = 20;
+      applyTransform();
+      setTimeout(drawOrthogonalBranches, 60);
+    }
+
+    /* Profile & Member CRUD */
+    function showMemberProfile(id) {
+      const m = currentRoom.members.find(x => x.id === id);
+      if (!m) return;
+
+      const imgEl = document.getElementById("view-photo");
+      const fbEl = document.getElementById("view-fallback");
+      if (m.photo) {
+        imgEl.src = m.photo;
+        imgEl.style.display = "block";
+        fbEl.style.display = "none";
+      } else {
+        imgEl.style.display = "none";
+        fbEl.style.display = "flex";
+        fbEl.textContent = m.name.slice(0, 2).toUpperCase();
+      }
+
+      document.getElementById("view-role").textContent = m.role;
+      document.getElementById("view-name").textContent = m.name;
+      document.getElementById("view-years").textContent = `${m.years || ''} (${m.status === 'late' ? 'स्वर्गवासी' : 'सकुशल'})`;
+      document.getElementById("view-spouse").textContent = m.spouse || "-";
+      document.getElementById("view-place").textContent = m.place || "-";
+      document.getElementById("view-work").textContent = m.work || "-";
+      document.getElementById("view-gen").textContent = `Peedhi ${m.generation}`;
+      document.getElementById("view-bio").textContent = m.bio || "-";
+
+      document.getElementById("view-edit-btn").onclick = () => {
+        closeModal("profile-modal");
+        openMemberModal(m.id);
+      };
+      document.getElementById("view-add-child-btn").onclick = () => {
+        closeModal("profile-modal");
+        openAddChild(m.id);
+      };
+      document.getElementById("view-del-btn").onclick = () => {
+        if (confirm(`Kya aap ${m.name} ka record hatana chahte hain?`)) {
+          currentRoom.members = currentRoom.members.filter(x => x.id !== m.id);
+          saveAllRooms();
+          closeModal("profile-modal");
+          renderFamilyTree();
+        }
+      };
+
+      document.getElementById("profile-modal").classList.add("open");
+    }
+
+    function populateParentsDropdown(selectedParent = "") {
+      const sel = document.getElementById("m-parent");
+      sel.innerHTML = `<option value="">-- Top Purvaj (No Parent) --</option>`;
+      currentRoom.members.forEach(m => {
+        sel.innerHTML += `<option value="${m.id}" ${m.id === selectedParent ? 'selected' : ''}>${m.name} (${m.role})</option>`;
+      });
+    }
+
+    function openMemberModal(editId = "") {
+      const form = document.getElementById("member-form");
+      form.reset();
+      tempUploadBase64 = "";
+      document.getElementById("m-preview").style.display = "none";
+
+      if (editId) {
+        const m = currentRoom.members.find(x => x.id === editId);
+        if (!m) return;
+        document.getElementById("m-id").value = m.id;
+        document.getElementById("m-name").value = m.name;
+        document.getElementById("m-role").value = m.role;
+        document.getElementById("m-gen").value = m.generation;
+        document.getElementById("m-spouse").value = m.spouse || "";
+        document.getElementById("m-status").value = m.status || "living";
+        document.getElementById("m-years").value = m.years || "";
+        document.getElementById("m-place").value = m.place || "";
+        document.getElementById("m-work").value = m.work || "";
+        document.getElementById("m-bio").value = m.bio || "";
+        populateParentsDropdown(m.parentId);
+        if (m.photo) {
+          tempUploadBase64 = m.photo;
+          const prev = document.getElementById("m-preview");
+          prev.src = m.photo;
+          prev.style.display = "block";
+        }
+      } else {
+        document.getElementById("m-id").value = "";
+        populateParentsDropdown();
+      }
+
+      document.getElementById("edit-modal").classList.add("open");
+    }
+
+    function openAddChild(parentId) {
+      const p = currentRoom.members.find(x => x.id === parentId);
+      openMemberModal();
+      populateParentsDropdown(parentId);
+      if (p) {
+        document.getElementById("m-gen").value = Math.min(5, Number(p.generation) + 1);
+      }
+    }
+
+    function compressAndPreviewPhoto(input) {
+      const file = input.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = e => {
+        const img = new Image();
+        img.src = e.target.result;
+        img.onload = () => {
+          const c = document.createElement("canvas");
+          const max = 320;
+          let w = img.width, h = img.height;
+          if (w > h && w > max) { h = Math.round(h * max / w); w = max; }
+          else if (h > max) { w = Math.round(w * max / h); h = max; }
+          c.width = w; c.height = h;
+          c.getContext("2d").drawImage(img, 0, 0, w, h);
+          tempUploadBase64 = c.toDataURL("image/jpeg", 0.75);
+          const prev = document.getElementById("m-preview");
+          prev.src = tempUploadBase64;
+          prev.style.display = "block";
+        };
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function saveMemberForm(e) {
+      e.preventDefault();
+      const id = document.getElementById("m-id").value;
+      const entry = {
+        id: id || "m-" + Date.now(),
+        name: document.getElementById("m-name").value.trim(),
+        role: document.getElementById("m-role").value.trim(),
+        generation: Number(document.getElementById("m-gen").value),
+        parentId: document.getElementById("m-parent").value,
+        spouse: document.getElementById("m-spouse").value.trim(),
+        status: document.getElementById("m-status").value,
+        years: document.getElementById("m-years").value.trim(),
+        place: document.getElementById("m-place").value.trim(),
+        work: document.getElementById("m-work").value.trim(),
+        bio: document.getElementById("m-bio").value.trim(),
+        photo: tempUploadBase64
+      };
+
+      if (id) {
+        const idx = currentRoom.members.findIndex(x => x.id === id);
+        if (idx > -1) currentRoom.members[idx] = entry;
+      } else {
+        currentRoom.members.push(entry);
+      }
+
+      saveAllRooms();
+      closeModal("edit-modal");
+      renderFamilyTree();
+    }
+
+    /* Shareable Link with Embedded Room Data */
+    function shareRoomLink() {
+      if (!currentRoom) return;
+      const payload = btoa(unescape(encodeURIComponent(JSON.stringify(currentRoom))));
+      const shareURL = `${window.location.origin}${window.location.pathname}#share=${payload}`;
+      document.getElementById("share-room-id-txt").textContent = currentRoom.roomId;
+      document.getElementById("share-url-input").value = shareURL;
+      document.getElementById("share-modal").classList.add("open");
+    }
+
+    function copyShareLink() {
+      const inp = document.getElementById("share-url-input");
+      inp.select();
+      navigator.clipboard.writeText(inp.value);
+      alert("Room Share Link copy ho gaya! Ab ise parivar ke sadasyon ko bhej sakte hain.");
+    }
+
+    function shareViaWhatsApp() {
+      const url = document.getElementById("share-url-input").value;
+      const text = `Namaste! Hamare *${currentRoom.familyName}* ka Digital Family Tree dekhne ke liye is link par click karein:
+
+${url}
+
+*Room ID:* ${currentRoom.roomId}
+(Passkey ke liye mujhse sampark karein)`;
+      window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank");
+    }
+
+    /* Views & Themes */
+    function setView(v, btn) {
+      document.querySelectorAll(".view-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      document.getElementById("tree-viewport").style.display = v === "tree" ? "block" : "none";
+      document.getElementById("album-section").style.display = v === "album" ? "block" : "none";
+      document.getElementById("list-section").style.display = v === "list" ? "block" : "none";
+
+      if (v === "tree") setTimeout(drawOrthogonalBranches, 50);
+      if (v === "album") renderAlbum();
+      if (v === "list") renderList();
+    }
+
+    function renderAlbum() {
+      const box = document.getElementById("album-container");
+      box.innerHTML = "";
+      currentRoom.members.forEach(m => {
+        const div = document.createElement("div");
+        div.className = "photo-card";
+        div.onclick = () => showMemberProfile(m.id);
+        const media = m.photo
+          ? `<img src="${m.photo}">`
+          : `<i class="fa-solid fa-user" style="font-size:3rem; color:var(--primary);"></i>`;
+        div.innerHTML = `
+          <div class="photo-frame">${media}</div>
+          <div style="padding:14px; text-align:center;">
+            <span class="person-role">${m.role}</span>
+            <h4 style="margin-top:4px;">${m.name}</h4>
+            <p style="font-size:0.76rem; color:var(--text-muted);">${m.years || ''}</p>
+          </div>
+        `;
+        box.appendChild(div);
+      });
+    }
+
+    function renderList() {
+      const tb = document.getElementById("list-tbody");
+      tb.innerHTML = "";
+      currentRoom.members.forEach(m => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td><strong>${m.name.slice(0,2).toUpperCase()}</strong></td>
+          <td><strong>${m.name}</strong></td>
+          <td><span class="person-role">${m.role}</span></td>
+          <td>Gen ${m.generation}</td>
+          <td>${m.spouse || '-'}</td>
+          <td>${m.years || '-'}</td>
+          <td>${m.place || ''} • ${m.work || ''}</td>
+          <td><button class="mini-btn" onclick="openMemberModal('${m.id}')"><i class="fa-solid fa-pen"></i> Edit</button></td>
+        `;
+        tb.appendChild(tr);
+      });
+    }
+
+    function setTheme(t) {
+      document.body.setAttribute("data-theme", t);
+      setTimeout(drawOrthogonalBranches, 50);
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.remove("open");
+    }
+
+    function exportRoomJSON() {
+      if (!currentRoom) return;
+      const blob = new Blob([JSON.stringify(currentRoom, null, 2)], { type: "application/json" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = `${currentRoom.roomId}-backup.json`;
+      a.click();
+    }
+
+    /* Boot */
+    loadAllRooms();
+    checkSharedURLPayload();
+    const activeId = sessionStorage.getItem("active_room_id");
+    if (activeId && allRooms[activeId]) {
+      enterRoom(allRooms[activeId]);
+    }
+  </script>
+</body>
+</html>
