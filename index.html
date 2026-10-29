@@ -3,13 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Parivar Vanshavali - Family Tree & Heritage Room Portal</title>
+  <title>Parivar Vanshavali - Digital Family Tree Portal</title>
   <meta name="description" content="Apne parivar ka digital vanshavali (Family Tree) room banayein, dada-pardada aur aane wali peedhiyon ka itihas aur photo surakshit rakhein.">
   <meta name="keywords" content="Family Tree, Parivar Vanshavali, Gupta Parivar, Digital Vanshavali, Family Heritage Portal, Kulvriksh">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="Parivar Vanshavali - Digital Family Tree Portal">
-  <meta property="og:description" content="Private Passkey Protected Family Tree Rooms. Create your family lineage and share securely with relatives.">
-  <meta property="og:type" content="website">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,10 +15,9 @@
 
   <style>
     :root {
-      /* Bright, Warm & Clean Light Theme (Default) */
       --bg-main: #fcfaf5;
       --bg-pattern: radial-gradient(#e6dec8 1px, transparent 1px);
-      --header-bg: rgba(255, 255, 255, 0.94);
+      --header-bg: rgba(255, 255, 255, 0.95);
       --card-bg: #ffffff;
       --card-border: #e5dcc5;
       --card-hover-border: #d97706;
@@ -40,7 +36,7 @@
     [data-theme="nature"] {
       --bg-main: #f4fbf7;
       --bg-pattern: radial-gradient(#cce8d6 1px, transparent 1px);
-      --header-bg: rgba(255, 255, 255, 0.94);
+      --header-bg: rgba(255, 255, 255, 0.95);
       --card-bg: #ffffff;
       --card-border: #bbf7d0;
       --card-hover-border: #15803d;
@@ -52,8 +48,6 @@
       --text-dark: #0f172a;
       --text-muted: #475569;
       --line-color: #16a34a;
-      --shadow-soft: 0 10px 25px -5px rgba(21, 128, 61, 0.08);
-      --shadow-hover: 0 20px 35px -8px rgba(21, 128, 61, 0.18);
     }
 
     [data-theme="royal-blue"] {
@@ -71,15 +65,9 @@
       --text-dark: #0f172a;
       --text-muted: #64748b;
       --line-color: #3b82f6;
-      --shadow-soft: 0 10px 25px -5px rgba(37, 99, 235, 0.08);
-      --shadow-hover: 0 20px 35px -8px rgba(37, 99, 235, 0.16);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
@@ -106,19 +94,20 @@
 
     .auth-card {
       width: 100%;
-      max-width: 460px;
+      max-width: 470px;
       background: #ffffff;
       border: 2px solid #fde68a;
       border-radius: 28px;
-      padding: 36px 32px;
+      padding: 32px 28px;
       box-shadow: 0 25px 50px -12px rgba(180, 83, 9, 0.15);
       text-align: center;
+      margin: auto;
     }
 
     .emblem-circle {
-      width: 78px;
-      height: 78px;
-      margin: 0 auto 14px;
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 12px;
       border-radius: 50%;
       background: linear-gradient(135deg, #fff7ed, #ffedd5);
       border: 2px solid #f59e0b;
@@ -128,23 +117,34 @@
       box-shadow: 0 8px 20px rgba(245, 158, 11, 0.2);
     }
 
-    .emblem-circle i {
-      font-size: 2.2rem;
-      color: #d97706;
-    }
+    .emblem-circle i { font-size: 2rem; color: #d97706; }
 
     .auth-title {
       font-family: 'Cinzel', serif;
-      font-size: 1.75rem;
+      font-size: 1.65rem;
       font-weight: 800;
       color: #9a3412;
       margin-bottom: 4px;
     }
 
     .auth-subtitle {
-      font-size: 0.86rem;
+      font-size: 0.84rem;
       color: #78716c;
-      margin-bottom: 22px;
+      margin-bottom: 14px;
+    }
+
+    .cloud-status-banner {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      background: #dcfce7;
+      color: #15803d;
+      border: 1px solid #bbf7d0;
     }
 
     .auth-tabs {
@@ -152,7 +152,7 @@
       background: #f5f5f4;
       padding: 5px;
       border-radius: 14px;
-      margin-bottom: 22px;
+      margin-bottom: 18px;
     }
 
     .auth-tab {
@@ -162,7 +162,7 @@
       background: transparent;
       border-radius: 10px;
       font-weight: 700;
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       color: #57534e;
       cursor: pointer;
       transition: all 0.2s;
@@ -176,34 +176,45 @@
 
     .field-group {
       text-align: left;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .field-group label {
       display: block;
-      font-size: 0.76rem;
+      font-size: 0.74rem;
       font-weight: 700;
       text-transform: uppercase;
       color: #78350f;
-      margin-bottom: 6px;
-      letter-spacing: 0.5px;
+      margin-bottom: 5px;
     }
 
-    .input-wrap {
-      position: relative;
-    }
+    .input-wrap { position: relative; }
 
-    .input-wrap i {
+    .input-wrap i.left-ico {
       position: absolute;
       left: 14px;
       top: 50%;
       transform: translateY(-50%);
       color: #d97706;
+      pointer-events: none;
+    }
+
+    .eye-toggle {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: #78716c;
+      cursor: pointer;
+      font-size: 0.95rem;
+      padding: 4px;
     }
 
     .auth-input {
       width: 100%;
-      padding: 12px 14px 12px 40px;
+      padding: 12px 38px 12px 40px;
       border: 1.5px solid #e7e5e4;
       border-radius: 12px;
       font-size: 0.94rem;
@@ -221,36 +232,53 @@
 
     .btn-main {
       width: 100%;
-      padding: 14px;
+      padding: 13px;
       border: none;
       border-radius: 14px;
       background: linear-gradient(135deg, #ea580c 0%, #d97706 100%);
       color: #ffffff;
       font-weight: 700;
-      font-size: 0.98rem;
+      font-size: 0.95rem;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
       box-shadow: 0 8px 20px rgba(234, 88, 12, 0.25);
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: transform 0.2s;
     }
 
-    .btn-main:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 24px rgba(234, 88, 12, 0.35);
+    .btn-main:hover { transform: translateY(-2px); }
+
+    .btn-main:disabled {
+      opacity: 0.65;
+      cursor: wait;
     }
 
     .auth-error {
       color: #dc2626;
       background: #fef2f2;
       border: 1px solid #fecaca;
-      padding: 10px;
+      padding: 10px 12px;
       border-radius: 10px;
       font-size: 0.82rem;
       margin-bottom: 14px;
       display: none;
+      text-align: left;
+      line-height: 1.45;
+    }
+
+    .auth-success {
+      color: #15803d;
+      background: #dcfce7;
+      border: 1px solid #bbf7d0;
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      margin-bottom: 14px;
+      display: none;
+      text-align: left;
+      line-height: 1.45;
     }
 
     /* ================= TOP HEADER ================= */
@@ -293,14 +321,14 @@
 
     .brand-text h1 {
       font-family: 'Cinzel', serif;
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: 800;
       color: var(--text-dark);
       line-height: 1.1;
     }
 
     .brand-text span {
-      font-size: 0.74rem;
+      font-size: 0.72rem;
       color: var(--primary);
       font-weight: 700;
     }
@@ -314,18 +342,17 @@
     }
 
     .view-btn {
-      padding: 7px 14px;
+      padding: 7px 13px;
       border: none;
       border-radius: 9px;
       background: transparent;
       color: var(--text-muted);
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 700;
       cursor: pointer;
       display: flex;
       align-items: center;
       gap: 6px;
-      transition: all 0.2s;
     }
 
     .view-btn.active {
@@ -341,12 +368,12 @@
     }
 
     .action-btn {
-      padding: 8px 13px;
+      padding: 8px 12px;
       border-radius: 10px;
       border: 1px solid var(--card-border);
       background: #ffffff;
       color: var(--text-dark);
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 600;
       cursor: pointer;
       display: inline-flex;
@@ -366,11 +393,6 @@
       border-color: var(--primary);
     }
 
-    .action-btn.solid:hover {
-      opacity: 0.92;
-      color: #ffffff;
-    }
-
     /* ================= HERO & CONTROLS ================= */
     main {
       padding-top: 84px;
@@ -380,15 +402,15 @@
     }
 
     .banner-bar {
-      max-width: 1100px;
+      max-width: 1120px;
       margin: 0 auto 14px;
-      padding: 16px 24px;
+      padding: 12px 20px;
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 12px;
       background: #ffffff;
       border: 1px solid var(--card-border);
       border-radius: 18px;
@@ -398,14 +420,15 @@
     .room-badge-info {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
     .room-pill {
       background: var(--accent-green-bg);
       color: var(--accent-green);
       font-weight: 700;
-      font-size: 0.76rem;
+      font-size: 0.74rem;
       padding: 5px 12px;
       border-radius: 999px;
       display: inline-flex;
@@ -422,7 +445,7 @@
 
     .search-input-box {
       position: relative;
-      min-width: 240px;
+      min-width: 220px;
     }
 
     .search-input-box i {
@@ -443,7 +466,7 @@
       outline: none;
     }
 
-    /* ================= VISUAL FAMILY TREE CHART (LIGHT & CLEAN) ================= */
+    /* ================= VISUAL FAMILY TREE CHART ================= */
     #tree-viewport {
       flex: 1;
       position: relative;
@@ -453,9 +476,7 @@
       min-height: 600px;
     }
 
-    #tree-viewport:active {
-      cursor: grabbing;
-    }
+    #tree-viewport:active { cursor: grabbing; }
 
     #tree-canvas {
       position: absolute;
@@ -506,11 +527,8 @@
       border-radius: 10px;
       font-size: 0.74rem;
       font-weight: 800;
-      letter-spacing: 0.5px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
     }
 
-    /* Clean Light Card Like Reference Image */
     .person-card {
       width: 245px;
       background: var(--card-bg);
@@ -642,7 +660,6 @@
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      transition: all 0.15s;
     }
 
     .mini-btn:hover {
@@ -651,7 +668,6 @@
       border-color: var(--primary);
     }
 
-    /* Floating Zoom Controls */
     .zoom-dock {
       position: fixed;
       bottom: 24px;
@@ -675,12 +691,6 @@
       background: #f8fafc;
       color: var(--text-dark);
       cursor: pointer;
-      font-size: 0.9rem;
-    }
-
-    .zoom-btn:hover {
-      background: var(--primary);
-      color: #ffffff;
     }
 
     /* ================= ALBUM & LIST VIEWS ================= */
@@ -705,10 +715,7 @@
       overflow: hidden;
       box-shadow: var(--shadow-soft);
       cursor: pointer;
-      transition: transform 0.2s;
     }
-
-    .photo-card:hover { transform: translateY(-4px); }
 
     .photo-frame {
       height: 210px;
@@ -731,7 +738,6 @@
       border: 1px solid var(--card-border);
       border-collapse: collapse;
       overflow: hidden;
-      box-shadow: var(--shadow-soft);
     }
 
     .clean-table th {
@@ -753,8 +759,8 @@
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      z-index: 2000;
-      background: rgba(15, 23, 42, 0.55);
+      z-index: 10000;
+      background: rgba(15, 23, 42, 0.6);
       backdrop-filter: blur(6px);
       display: none;
       align-items: center;
@@ -766,14 +772,14 @@
 
     .modal-box {
       width: 100%;
-      max-width: 560px;
+      max-width: 580px;
       max-height: 90vh;
       overflow-y: auto;
       background: #ffffff;
       border-radius: 24px;
       padding: 28px;
       position: relative;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.25);
     }
 
     .close-x {
@@ -825,8 +831,6 @@
       margin-bottom: 16px;
     }
 
-    .upload-dropzone:hover { border-color: var(--primary); }
-
     @media (max-width: 768px) {
       header.top-nav { padding: 0 12px; }
       .brand-text span { display: none; }
@@ -837,18 +841,23 @@
 </head>
 <body data-theme="heritage">
 
-  <!-- ================= MULTI-ROOM LOGIN & CREATE GATE (NO PASSKEY SHOWN) ================= -->
+  <!-- ================= MULTI-ROOM CLOUD LOGIN & CREATE GATE ================= -->
   <div id="auth-overlay">
     <div class="auth-card">
       <div class="emblem-circle">
         <i class="fa-solid fa-tree"></i>
       </div>
       <h2 class="auth-title">PARIVAR VANSHAVALI</h2>
-      <p class="auth-subtitle">Apne Parivar Room me pravesh karein ya naya Parivar Room banayein</p>
+      <p class="auth-subtitle">Apne Parivar Room me login karein ya naya Parivar Room banayein</p>
+
+      <div class="cloud-status-banner">
+        <i class="fa-solid fa-cloud-check"></i>
+        <span>Live Cloud Server Connected (All Devices Sync)</span>
+      </div>
 
       <div class="auth-tabs">
         <button class="auth-tab active" id="tab-join-btn" onclick="switchAuthTab('join')">
-          <i class="fa-solid fa-door-open"></i> Room Kholein
+          <i class="fa-solid fa-door-open"></i> Room Login
         </button>
         <button class="auth-tab" id="tab-create-btn" onclick="switchAuthTab('create')">
           <i class="fa-solid fa-plus-circle"></i> Naya Room Banayein
@@ -856,60 +865,70 @@
       </div>
 
       <div id="auth-err" class="auth-error"></div>
+      <div id="auth-ok" class="auth-success"></div>
 
       <!-- TAB 1: JOIN EXISTING ROOM -->
       <form id="join-room-form" onsubmit="handleJoinRoom(event)">
         <div class="field-group">
-          <label>Parivar Room ID</label>
+          <label>Room ID / Parivar Username</label>
           <div class="input-wrap">
-            <i class="fa-solid fa-users-rectangle"></i>
-            <input type="text" id="join-room-id" class="auth-input" placeholder="e.g. gupta-parivar" required>
+            <i class="fa-solid fa-users-rectangle left-ico"></i>
+            <input type="text" id="join-room-id" class="auth-input" placeholder="Apna Room ID dalein" required>
           </div>
         </div>
         <div class="field-group">
           <label>Secret Passkey</label>
           <div class="input-wrap">
-            <i class="fa-solid fa-lock"></i>
+            <i class="fa-solid fa-lock left-ico"></i>
             <input type="password" id="join-passkey" class="auth-input" placeholder="Apna secret passkey dalein" required>
+            <button type="button" class="eye-toggle" onclick="togglePassVisibility('join-passkey', this)">
+              <i class="fa-regular fa-eye"></i>
+            </button>
           </div>
         </div>
-        <button type="submit" class="btn-main">
-          <i class="fa-solid fa-arrow-right-to-bracket"></i> Parivar Vriksh Dekhein
+        <button type="submit" class="btn-main" id="login-submit-btn">
+          <i class="fa-solid fa-arrow-right-to-bracket"></i> Parivar Vriksh Kholein
         </button>
       </form>
 
       <!-- TAB 2: CREATE NEW FAMILY ROOM -->
       <form id="create-room-form" style="display:none;" onsubmit="handleCreateRoom(event)">
         <div class="field-group">
-          <label>Parivar Ka Naam (Title)</label>
+          <label>Parivar Ka Naam (Title) *</label>
           <div class="input-wrap">
-            <i class="fa-solid fa-crown"></i>
-            <input type="text" id="new-family-name" class="auth-input" placeholder="e.g. SHARMA PARIVAR" required>
+            <i class="fa-solid fa-crown left-ico"></i>
+            <input type="text" id="new-family-name" class="auth-input" placeholder="e.g. GUPTA PARIVAR" required oninput="autoSuggestRoomId(this.value)">
           </div>
         </div>
         <div class="field-group">
-          <label>Unique Room ID Banayein</label>
+          <label>Unique Room ID / Username Banayein *</label>
           <div class="input-wrap">
-            <i class="fa-solid fa-fingerprint"></i>
-            <input type="text" id="new-room-id" class="auth-input" placeholder="e.g. sharma-parivar-108" required>
+            <i class="fa-solid fa-user-check left-ico"></i>
+            <input type="text" id="new-room-id" class="auth-input" placeholder="e.g. gupta-parivar" required>
+          </div>
+          <small style="font-size:0.72rem; color:#78716c; display:block; margin-top:4px;">
+            Yahi Room ID aur Passkey parivar ke sabhi sadasya apne phone me login karne ke liye dalenge.
+          </small>
+        </div>
+        <div class="field-group">
+          <label>Secret Passkey Set Karein *</label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-key left-ico"></i>
+            <input type="password" id="new-passkey" class="auth-input" placeholder="Apna secret passkey banayein" required>
+            <button type="button" class="eye-toggle" onclick="togglePassVisibility('new-passkey', this)">
+              <i class="fa-regular fa-eye"></i>
+            </button>
           </div>
         </div>
         <div class="field-group">
-          <label>Secret Passkey Set Karein</label>
+          <label>Pardada / Mukhiya Ka Naam (1st Peedhi) *</label>
           <div class="input-wrap">
-            <i class="fa-solid fa-key"></i>
-            <input type="password" id="new-passkey" class="auth-input" placeholder="Secret passkey chunein" required>
+            <i class="fa-solid fa-user-tie left-ico"></i>
+            <input type="text" id="new-founder-name" class="auth-input" placeholder="Sabse bade bujurg / purvaj ka naam" required>
           </div>
         </div>
-        <div class="field-group">
-          <label>Pardada / Mukhiya Ka Naam (1st Generation)</label>
-          <div class="input-wrap">
-            <i class="fa-solid fa-user-tie"></i>
-            <input type="text" id="new-founder-name" class="auth-input" placeholder="Purvaj / Mukhiya ka naam" required>
-          </div>
-        </div>
-        <button type="submit" class="btn-main">
-          <i class="fa-solid fa-sparkles"></i> Room Create Karein
+        <button type="submit" class="btn-main" id="create-submit-btn">
+          <i class="fa-solid fa-cloud-arrow-up"></i> Room Create & Cloud Save Karein
         </button>
       </form>
     </div>
@@ -921,7 +940,7 @@
       <div class="brand-icon"><i class="fa-solid fa-sitemap"></i></div>
       <div class="brand-text">
         <h1 id="nav-family-title">GUPTA PARIVAR</h1>
-        <span id="nav-room-tag">Room: gupta-parivar</span>
+        <span id="nav-room-tag">Room ID: gupta-parivar</span>
       </div>
     </div>
 
@@ -932,26 +951,20 @@
     </div>
 
     <div class="nav-right">
-      <select class="action-btn" onchange="setTheme(this.value)" id="theme-picker">
-        <option value="heritage">☀️ Warm Heritage (Light)</option>
-        <option value="nature">🌿 Banyan Green (Light)</option>
-        <option value="royal-blue">💎 Clean Royal (Light)</option>
-      </select>
+      <button class="action-btn" onclick="refreshFromCloud(true)" title="Latest Cloud Data Refresh Karein">
+        <i class="fa-solid fa-arrows-rotate" id="sync-spin-ico"></i> Sync
+      </button>
 
       <button class="action-btn solid" onclick="openMemberModal()">
         <i class="fa-solid fa-user-plus"></i> Add Sadasya
       </button>
 
-      <button class="action-btn" onclick="shareRoomLink()" title="Share Room Link with Family">
-        <i class="fa-solid fa-share-nodes"></i> Share Link
+      <button class="action-btn" onclick="shareWhatsAppInvite()" title="Invite Family on WhatsApp">
+        <i class="fa-brands fa-whatsapp" style="color:#16a34a; font-size:1rem;"></i> Share
       </button>
 
-      <button class="action-btn" onclick="exportRoomJSON()" title="Download Room Backup">
-        <i class="fa-solid fa-download"></i>
-      </button>
-
-      <button class="action-btn" onclick="switchRoomLogout()" title="Switch Room / Logout">
-        <i class="fa-solid fa-power-off"></i>
+      <button class="action-btn" onclick="switchRoomLogout()" title="Logout">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
       </button>
     </div>
   </header>
@@ -960,13 +973,18 @@
   <main>
     <div class="banner-bar">
       <div class="room-badge-info">
-        <span class="room-pill"><i class="fa-solid fa-shield-check"></i> Passkey Protected Room</span>
-        <strong id="banner-subtitle" style="font-size:0.9rem; color:var(--text-muted);">
+        <span class="room-pill" id="sync-status-badge"><i class="fa-solid fa-cloud-check"></i> Live Cloud Synced</span>
+        <strong id="banner-subtitle" style="font-size:0.88rem; color:var(--text-muted);">
           सम्मान, संस्कार और गौरवशाली पारिवारिक वंशवृक्ष
         </strong>
       </div>
 
       <div class="search-Filter-wrap">
+        <select class="action-btn" onchange="setTheme(this.value)" id="theme-picker">
+          <option value="heritage">☀️ Warm Heritage</option>
+          <option value="nature">🌿 Banyan Green</option>
+          <option value="royal-blue">💎 Clean Royal</option>
+        </select>
         <div class="search-input-box">
           <i class="fa-solid fa-magnifying-glass"></i>
           <input type="text" placeholder="Sadasya khojein..." oninput="renderFamilyTree(this.value)">
@@ -1146,44 +1164,21 @@
           <textarea id="m-bio" class="inp-field" rows="2" placeholder="Unke bare me vishesh baatein..."></textarea>
         </div>
 
-        <button type="submit" class="btn-main"><i class="fa-solid fa-check-circle"></i> Surakshit Save Karein</button>
+        <button type="submit" class="btn-main" id="save-member-btn"><i class="fa-solid fa-cloud-arrow-up"></i> Cloud Me Save Karein</button>
       </form>
     </div>
   </div>
 
-  <!-- ================= SHARE ROOM LINK MODAL ================= -->
-  <div class="modal-backdrop" id="share-modal">
-    <div class="modal-box">
-      <button class="close-x" onclick="closeModal('share-modal')"><i class="fa-solid fa-xmark"></i></button>
-      <h3 style="font-size:1.25rem; color:var(--primary); margin-bottom:8px;">
-        <i class="fa-solid fa-share-nodes"></i> Parivar Room Share Karein
-      </h3>
-      <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:16px;">
-        Is link ko WhatsApp par parivar ke sadasyon ko bhejein. Jab wo link kholenge aur aapka bataya <strong>Room ID</strong> aur <strong>Passkey</strong> dalenge, to unke phone me bhi pura Family Tree khul jayega!
-      </p>
-
-      <div style="background:#f8fafc; padding:12px; border-radius:12px; border:1px solid #e2e8f0; margin-bottom:14px;">
-        <span class="inp-label">Room ID</span>
-        <strong id="share-room-id-txt" style="font-size:1rem; color:var(--primary);"></strong>
-      </div>
-
-      <label class="inp-label">Shareable Magic Link (With Family Data)</label>
-      <div style="display:flex; gap:8px; margin-bottom:16px;">
-        <input type="text" id="share-url-input" class="inp-field" readonly>
-        <button class="action-btn solid" onclick="copyShareLink()"><i class="fa-solid fa-copy"></i> Copy</button>
-      </div>
-
-      <button class="btn-main" onclick="shareViaWhatsApp()" style="background:#16a34a;">
-        <i class="fa-brands fa-whatsapp"></i> WhatsApp Par Share Karein
-      </button>
-    </div>
-  </div>
-
-  <!-- ================= APPLICATION ENGINE ================= -->
+  <!-- ================= LIVE FIREBASE CLOUD ENGINE ================= -->
   <script>
-    /* Default Pre-configured Room for GUPTA PARIVAR */
+    /* =========================================================================
+       CONNECTED TO ADITYA'S FIREBASE REALTIME DATABASE
+       ========================================================================= */
+    const CLOUD_DB_URL = "https://parivar-vanshavali-default-rtdb.firebaseio.com";
+
     const DEFAULT_GUPTA_ROOM = {
       roomId: "gupta-parivar",
+      rawRoomId: "gupta-parivar",
       passkey: "gupta123",
       familyName: "GUPTA PARIVAR",
       subtitle: "सम्मान • संस्कार • गौरवशाली पारिवारिक वंशवृक्ष",
@@ -1289,13 +1284,79 @@
       ]
     };
 
-    /* Multi-Room Database in Browser Storage + URL Hash Import */
-    const DB_KEY = "vanshavali_multi_rooms_v2";
+    const DB_KEY = "vanshavali_cloud_cache_v5";
     let allRooms = {};
     let currentRoom = null;
     let tempUploadBase64 = "";
+    let syncInterval = null;
 
-    function loadAllRooms() {
+    function normalizeKey(str) {
+      return String(str || "").trim().toLowerCase().replace(/[^a-z0-9-_]/g, "-").replace(/-+/g, "-").replace(/^-|-$/g, "");
+    }
+
+    /* Cloud API Helpers (Firebase Realtime Database REST) */
+    async function fetchRoomFromCloud(normId) {
+      try {
+        const res = await fetch(`${CLOUD_DB_URL}/rooms/${normId}.json?t=${Date.now()}`);
+        if (!res.ok) return { error: "permission_or_network", status: res.status };
+        const data = await res.json();
+        return { data: data };
+      } catch (e) {
+        console.warn("Cloud fetch error:", e);
+        return { error: "network" };
+      }
+    }
+
+    async function saveRoomToCloud(roomObj) {
+      if (!roomObj || !roomObj.roomId) return false;
+      try {
+        const badge = document.getElementById("sync-status-badge");
+        if (badge) badge.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Saving to Cloud...`;
+        const res = await fetch(`${CLOUD_DB_URL}/rooms/${roomObj.roomId}.json`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(roomObj)
+        });
+        if (badge) {
+          badge.innerHTML = res.ok
+            ? `<i class="fa-solid fa-cloud-check"></i> Live Cloud Synced`
+            : `<i class="fa-solid fa-triangle-exclamation"></i> Check Firebase Rules`;
+        }
+        return res.ok;
+      } catch (e) {
+        console.warn("Cloud save error:", e);
+        return false;
+      }
+    }
+
+    /* Auto-seed default Gupta Parivar room in Firebase if empty */
+    async function ensureDefaultRoomInCloud() {
+      const check = await fetchRoomFromCloud("gupta-parivar");
+      if (check && check.data === null) {
+        await saveRoomToCloud(DEFAULT_GUPTA_ROOM);
+      }
+    }
+
+    async function refreshFromCloud(manual = false) {
+      if (!currentRoom) return;
+      const ico = document.getElementById("sync-spin-ico");
+      if (manual && ico) ico.classList.add("fa-spin");
+      const result = await fetchRoomFromCloud(currentRoom.roomId);
+      if (manual && ico) ico.classList.remove("fa-spin");
+
+      if (result && result.data && result.data.members) {
+        const cloudStr = JSON.stringify(result.data.members);
+        const localStr = JSON.stringify(currentRoom.members);
+        if (cloudStr !== localStr || manual) {
+          currentRoom = result.data;
+          allRooms[currentRoom.roomId] = currentRoom;
+          localStorage.setItem(DB_KEY, JSON.stringify(allRooms));
+          renderFamilyTree();
+        }
+      }
+    }
+
+    function loadLocalCache() {
       try {
         const raw = localStorage.getItem(DB_KEY);
         allRooms = raw ? JSON.parse(raw) : {};
@@ -1304,84 +1365,138 @@
       }
       if (!allRooms["gupta-parivar"]) {
         allRooms["gupta-parivar"] = DEFAULT_GUPTA_ROOM;
-        saveAllRooms();
       }
     }
 
-    function saveAllRooms() {
-      if (currentRoom) {
-        allRooms[currentRoom.roomId] = currentRoom;
-      }
-      localStorage.setItem(DB_KEY, JSON.stringify(allRooms));
-    }
-
-    /* Check if link contains shared room payload (#room=...) */
-    function checkSharedURLPayload() {
-      const hash = window.location.hash;
-      if (hash.startsWith("#share=")) {
-        try {
-          const encoded = hash.replace("#share=", "");
-          const decoded = JSON.parse(decodeURIComponent(escape(atob(encoded))));
-          if (decoded && decoded.roomId && decoded.passkey) {
-            allRooms[decoded.roomId] = decoded;
-            saveAllRooms();
-            document.getElementById("join-room-id").value = decoded.roomId;
-          }
-        } catch (err) {
-          console.warn("Invalid share link payload");
-        }
+    function togglePassVisibility(inputId, btn) {
+      const inp = document.getElementById(inputId);
+      if (inp.type === "password") {
+        inp.type = "text";
+        btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
+      } else {
+        inp.type = "password";
+        btn.innerHTML = '<i class="fa-regular fa-eye"></i>';
       }
     }
 
-    /* Auth Tabs */
+    function autoSuggestRoomId(val) {
+      const rInput = document.getElementById("new-room-id");
+      if (!rInput.dataset.manuallyEdited) {
+        rInput.value = normalizeKey(val);
+      }
+    }
+    document.getElementById("new-room-id").addEventListener("input", function() {
+      this.dataset.manuallyEdited = "true";
+    });
+
     function switchAuthTab(mode) {
-      document.getElementById("auth-err").style.display = "none";
-      const joinForm = document.getElementById("join-room-form");
-      const createForm = document.getElementById("create-room-form");
+      hideMessages();
       document.getElementById("tab-join-btn").classList.toggle("active", mode === "join");
       document.getElementById("tab-create-btn").classList.toggle("active", mode === "create");
-      joinForm.style.display = mode === "join" ? "block" : "none";
-      createForm.style.display = mode === "create" ? "block" : "none";
+      document.getElementById("join-room-form").style.display = mode === "join" ? "block" : "none";
+      document.getElementById("create-room-form").style.display = mode === "create" ? "block" : "none";
+    }
+
+    function hideMessages() {
+      document.getElementById("auth-err").style.display = "none";
+      document.getElementById("auth-ok").style.display = "none";
     }
 
     function showError(msg) {
+      hideMessages();
       const el = document.getElementById("auth-err");
-      el.textContent = msg;
+      el.innerHTML = `<i class="fa-solid fa-circle-exclamation"></i> ${msg}`;
       el.style.display = "block";
     }
 
-    function handleJoinRoom(e) {
-      e.preventDefault();
-      const rId = document.getElementById("join-room-id").value.trim().toLowerCase();
-      const pass = document.getElementById("join-passkey").value.trim();
-
-      const room = allRooms[rId];
-      if (!room) {
-        showError("Yeh Room ID nahi mila! Agar naya parivar hai to 'Naya Room Banayein' par click karein.");
-        return;
-      }
-      if (room.passkey !== pass) {
-        showError("Galat Passkey! Kripya sahi passkey dalein.");
-        return;
-      }
-
-      enterRoom(room);
+    function showSuccess(msg) {
+      hideMessages();
+      const el = document.getElementById("auth-ok");
+      el.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${msg}`;
+      el.style.display = "block";
     }
 
-    function handleCreateRoom(e) {
+    /* LOGIN HANDLER: Pulls directly from Firebase Cloud Server */
+    async function handleJoinRoom(e) {
       e.preventDefault();
+      hideMessages();
+      const inputUser = document.getElementById("join-room-id").value.trim();
+      const normId = normalizeKey(inputUser);
+      const inputPass = document.getElementById("join-passkey").value.trim();
+
+      const btn = document.getElementById("login-submit-btn");
+      btn.disabled = true;
+      btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Cloud Se Data La Rahe Hain...`;
+
+      let foundRoom = null;
+      const cloudRes = await fetchRoomFromCloud(normId);
+
+      if (cloudRes && cloudRes.data) {
+        foundRoom = cloudRes.data;
+      } else if (allRooms[normId]) {
+        foundRoom = allRooms[normId];
+      }
+
+      btn.disabled = false;
+      btn.innerHTML = `<i class="fa-solid fa-arrow-right-to-bracket"></i> Parivar Vriksh Kholein`;
+
+      if (cloudRes && cloudRes.status === 401) {
+        showError(`Firebase Database 'Locked Mode' me hai! Firebase Console me 'Rules' tab par click karke .read aur .write ko true karein.`);
+        return;
+      }
+
+      if (!foundRoom) {
+        showError(`Room ID "${inputUser}" nahi mila! Kripya Room ID check karein ya 'Naya Room Banayein' tab me jaakar naya Room create karein.`);
+        return;
+      }
+
+      if (String(foundRoom.passkey).trim().toLowerCase() !== inputPass.toLowerCase()) {
+        showError("Passkey galat hai! Kripya sahi passkey dalein.");
+        return;
+      }
+
+      allRooms[foundRoom.roomId] = foundRoom;
+      localStorage.setItem(DB_KEY, JSON.stringify(allRooms));
+      enterRoom(foundRoom);
+    }
+
+    /* CREATE ROOM HANDLER: Saves directly to Firebase Cloud Server */
+    async function handleCreateRoom(e) {
+      e.preventDefault();
+      hideMessages();
       const famName = document.getElementById("new-family-name").value.trim().toUpperCase();
-      const rId = document.getElementById("new-room-id").value.trim().toLowerCase().replace(/[^a-z0-9-_]/g, "-");
+      const rawId = document.getElementById("new-room-id").value.trim();
+      const normId = normalizeKey(rawId || famName);
       const pass = document.getElementById("new-passkey").value.trim();
       const founder = document.getElementById("new-founder-name").value.trim();
 
-      if (allRooms[rId]) {
-        showError("Yeh Room ID pehle se maujood hai! Koi dusra Room ID chunein.");
+      if (!normId) {
+        showError("Kripya valid Room ID dalein.");
+        return;
+      }
+
+      const btn = document.getElementById("create-submit-btn");
+      btn.disabled = true;
+      btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Cloud Par Room Ban Raha Hai...`;
+
+      const existingCloud = await fetchRoomFromCloud(normId);
+      if (existingCloud && existingCloud.status === 401) {
+        btn.disabled = false;
+        btn.innerHTML = `<i class="fa-solid fa-cloud-arrow-up"></i> Room Create & Cloud Save Karein`;
+        showError(`Firebase Rules Locked hain! Firebase ke 'Rules' tab me jaakar .read aur .write ko true karein.`);
+        return;
+      }
+
+      if (existingCloud && existingCloud.data) {
+        btn.disabled = false;
+        btn.innerHTML = `<i class="fa-solid fa-cloud-arrow-up"></i> Room Create & Cloud Save Karein`;
+        showError(`Room ID "${normId}" pehle se bana hua hai! Agar yeh aapka hi Room hai to 'Room Login' tab me jaakar login karein, warna dusra Room ID chunein.`);
         return;
       }
 
       const newRoom = {
-        roomId: rId,
+        roomId: normId,
+        rawRoomId: rawId || normId,
         passkey: pass,
         familyName: famName,
         subtitle: `${famName} — डिजिटल वंशवृक्ष एवं पारिवारिक धरोहर`,
@@ -1403,29 +1518,73 @@
         ]
       };
 
-      allRooms[rId] = newRoom;
-      saveAllRooms();
+      const savedOk = await saveRoomToCloud(newRoom);
+      allRooms[normId] = newRoom;
+      localStorage.setItem(DB_KEY, JSON.stringify(allRooms));
+
+      btn.disabled = false;
+      btn.innerHTML = `<i class="fa-solid fa-cloud-arrow-up"></i> Room Create & Cloud Save Karein`;
+
+      if (!savedOk) {
+        showError("Cloud par save nahi ho paya. Kripya Firebase ke 'Rules' tab me .read: true aur .write: true check karein.");
+        return;
+      }
+
       enterRoom(newRoom);
     }
 
     function enterRoom(room) {
       currentRoom = room;
-      sessionStorage.setItem("active_room_id", room.roomId);
+      localStorage.setItem("last_active_room_id", room.roomId);
       document.getElementById("auth-overlay").style.display = "none";
       document.getElementById("nav-family-title").textContent = room.familyName;
-      document.getElementById("nav-room-tag").textContent = `Room ID: ${room.roomId}`;
+      document.getElementById("nav-room-tag").textContent = `Room ID: ${room.rawRoomId || room.roomId}`;
       document.getElementById("banner-subtitle").textContent = room.subtitle;
       document.title = `${room.familyName} - Parivar Vanshavali`;
 
+      const badge = document.getElementById("sync-status-badge");
+      badge.innerHTML = `<i class="fa-solid fa-cloud-check"></i> Cloud Room: ${room.rawRoomId || room.roomId}`;
+
       renderFamilyTree();
       setTimeout(centerTree, 100);
+
+      // Auto-sync every 12 seconds so changes by any family member appear live
+      if (syncInterval) clearInterval(syncInterval);
+      syncInterval = setInterval(() => {
+        const anyModalOpen = document.querySelector(".modal-backdrop.open");
+        if (!anyModalOpen && currentRoom) {
+          refreshFromCloud(false);
+        }
+      }, 12000);
     }
 
     function switchRoomLogout() {
-      sessionStorage.removeItem("active_room_id");
+      if (syncInterval) clearInterval(syncInterval);
+      localStorage.removeItem("last_active_room_id");
+      const lastId = currentRoom ? (currentRoom.rawRoomId || currentRoom.roomId) : "";
       currentRoom = null;
+      hideMessages();
+      switchAuthTab("join");
+      if (lastId) {
+        document.getElementById("join-room-id").value = lastId;
+        showSuccess(`Aapka Room (${lastId}) Cloud par surakshit save hai! Ab parivar ka koi bhi sadasya apne phone me Room ID "${lastId}" aur Passkey dalkar login kar sakta hai.`);
+      }
       document.getElementById("join-passkey").value = "";
       document.getElementById("auth-overlay").style.display = "flex";
+    }
+
+    function shareWhatsAppInvite() {
+      if (!currentRoom) return;
+      const url = window.location.origin + window.location.pathname;
+      const rId = currentRoom.rawRoomId || currentRoom.roomId;
+      const text = `Namaste! Hamare *${currentRoom.familyName}* ka Digital Family Tree online ban gaya hai.
+
+Is link ko kholein:
+${url}
+
+*Room ID:* ${rId}
+(Passkey dalkar parivar ka vanshavali dekhein aur apna data/photo update karein!)`;
+      window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank");
     }
 
     /* Render Clean Light Tree */
@@ -1434,12 +1593,19 @@
       const container = document.getElementById("tree-generations");
       container.innerHTML = "";
 
-      const list = currentRoom.members.filter(m =>
-        m.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        m.role.toLowerCase().includes(searchQuery.toLowerCase())
+      const membersArr = Array.isArray(currentRoom.members)
+        ? currentRoom.members
+        : Object.values(currentRoom.members || {});
+      currentRoom.members = membersArr;
+
+      const list = membersArr.filter(m =>
+        m && (
+          m.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          m.role.toLowerCase().includes(searchQuery.toLowerCase())
+        )
       );
 
-      document.getElementById("total-count").textContent = currentRoom.members.length;
+      document.getElementById("total-count").textContent = membersArr.length;
 
       const genNames = {
         1: "पीढ़ी 1 • परदादा / पूर्वज",
@@ -1497,7 +1663,6 @@
       setTimeout(drawOrthogonalBranches, 60);
     }
 
-    /* Crisp Orthogonal Family Tree Lines (Like Traditional Charts) */
     function drawOrthogonalBranches() {
       const svg = document.getElementById("connector-svg");
       const canvas = document.getElementById("tree-canvas");
@@ -1507,7 +1672,7 @@
       const cRect = canvas.getBoundingClientRect();
 
       currentRoom.members.forEach(m => {
-        if (!m.parentId) return;
+        if (!m || !m.parentId) return;
         const pEl = document.getElementById(`node-${m.parentId}`);
         const cEl = document.getElementById(`node-${m.id}`);
         if (!pEl || !cEl) return;
@@ -1528,7 +1693,6 @@
       });
     }
 
-    /* Pan & Zoom Engine */
     let scale = 1, panX = 0, panY = 0, dragging = false, sX = 0, sY = 0;
     const viewport = document.getElementById("tree-viewport");
     const canvas = document.getElementById("tree-canvas");
@@ -1567,7 +1731,6 @@
       setTimeout(drawOrthogonalBranches, 60);
     }
 
-    /* Profile & Member CRUD */
     function showMemberProfile(id) {
       const m = currentRoom.members.find(x => x.id === id);
       if (!m) return;
@@ -1601,12 +1764,14 @@
         closeModal("profile-modal");
         openAddChild(m.id);
       };
-      document.getElementById("view-del-btn").onclick = () => {
+      document.getElementById("view-del-btn").onclick = async () => {
         if (confirm(`Kya aap ${m.name} ka record hatana chahte hain?`)) {
           currentRoom.members = currentRoom.members.filter(x => x.id !== m.id);
-          saveAllRooms();
+          allRooms[currentRoom.roomId] = currentRoom;
+          localStorage.setItem(DB_KEY, JSON.stringify(allRooms));
           closeModal("profile-modal");
           renderFamilyTree();
+          await saveRoomToCloud(currentRoom);
         }
       };
 
@@ -1673,13 +1838,13 @@
         img.src = e.target.result;
         img.onload = () => {
           const c = document.createElement("canvas");
-          const max = 320;
+          const max = 260;
           let w = img.width, h = img.height;
           if (w > h && w > max) { h = Math.round(h * max / w); w = max; }
           else if (h > max) { w = Math.round(w * max / h); h = max; }
           c.width = w; c.height = h;
           c.getContext("2d").drawImage(img, 0, 0, w, h);
-          tempUploadBase64 = c.toDataURL("image/jpeg", 0.75);
+          tempUploadBase64 = c.toDataURL("image/jpeg", 0.72);
           const prev = document.getElementById("m-preview");
           prev.src = tempUploadBase64;
           prev.style.display = "block";
@@ -1688,8 +1853,12 @@
       reader.readAsDataURL(file);
     }
 
-    function saveMemberForm(e) {
+    async function saveMemberForm(e) {
       e.preventDefault();
+      const btn = document.getElementById("save-member-btn");
+      btn.disabled = true;
+      btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Cloud Me Save Ho Raha Hai...`;
+
       const id = document.getElementById("m-id").value;
       const entry = {
         id: id || "m-" + Date.now(),
@@ -1713,40 +1882,16 @@
         currentRoom.members.push(entry);
       }
 
-      saveAllRooms();
+      allRooms[currentRoom.roomId] = currentRoom;
+      localStorage.setItem(DB_KEY, JSON.stringify(allRooms));
+      await saveRoomToCloud(currentRoom);
+
+      btn.disabled = false;
+      btn.innerHTML = `<i class="fa-solid fa-cloud-arrow-up"></i> Cloud Me Save Karein`;
       closeModal("edit-modal");
       renderFamilyTree();
     }
 
-    /* Shareable Link with Embedded Room Data */
-    function shareRoomLink() {
-      if (!currentRoom) return;
-      const payload = btoa(unescape(encodeURIComponent(JSON.stringify(currentRoom))));
-      const shareURL = `${window.location.origin}${window.location.pathname}#share=${payload}`;
-      document.getElementById("share-room-id-txt").textContent = currentRoom.roomId;
-      document.getElementById("share-url-input").value = shareURL;
-      document.getElementById("share-modal").classList.add("open");
-    }
-
-    function copyShareLink() {
-      const inp = document.getElementById("share-url-input");
-      inp.select();
-      navigator.clipboard.writeText(inp.value);
-      alert("Room Share Link copy ho gaya! Ab ise parivar ke sadasyon ko bhej sakte hain.");
-    }
-
-    function shareViaWhatsApp() {
-      const url = document.getElementById("share-url-input").value;
-      const text = `Namaste! Hamare *${currentRoom.familyName}* ka Digital Family Tree dekhne ke liye is link par click karein:
-
-${url}
-
-*Room ID:* ${currentRoom.roomId}
-(Passkey ke liye mujhse sampark karein)`;
-      window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank");
-    }
-
-    /* Views & Themes */
     function setView(v, btn) {
       document.querySelectorAll(".view-btn").forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
@@ -1809,21 +1954,13 @@ ${url}
       document.getElementById(id).classList.remove("open");
     }
 
-    function exportRoomJSON() {
-      if (!currentRoom) return;
-      const blob = new Blob([JSON.stringify(currentRoom, null, 2)], { type: "application/json" });
-      const a = document.createElement("a");
-      a.href = URL.createObjectURL(blob);
-      a.download = `${currentRoom.roomId}-backup.json`;
-      a.click();
-    }
-
     /* Boot */
-    loadAllRooms();
-    checkSharedURLPayload();
-    const activeId = sessionStorage.getItem("active_room_id");
-    if (activeId && allRooms[activeId]) {
-      enterRoom(allRooms[activeId]);
+    loadLocalCache();
+    ensureDefaultRoomInCloud();
+    const lastActive = localStorage.getItem("last_active_room_id");
+    if (lastActive && allRooms[lastActive]) {
+      enterRoom(allRooms[lastActive]);
+      refreshFromCloud(false);
     }
   </script>
 </body>
